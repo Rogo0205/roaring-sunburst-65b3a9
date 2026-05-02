@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San José de Pare - El tesoro escondido de Boyacá | Colombia</title>
+    <meta name="description" content="Discover San José de Pare: artisanal panela, Guane history, highland lagoons, traditional gastronomy and authentic ecotourism in Boyacá, Colombia.">
+    <meta name="keywords" content="San José de Pare, Boyacá tourism, panela Colombia, ecotourism, Guane culture">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --verde-tierra: #4A7C59;
+            --dorado-panela: #efb810;
+            --crema: #F5F0E8;
+            --cafe-oscuro: #3B2314;
+            --blanco: #FFFFFF;
+        }
+ 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.7;
+            color: var(--cafe-oscuro);
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--cafe-oscuro); }
+ 
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--verde-tierra), var(--dorado-panela));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: 700; font-family: 'Playfair Display', serif; }
+        .nav-menu { display: flex; list-style: none; gap: 1.2rem; flex-wrap: wrap; }
+        .nav-link { color: white; text-decoration: none; font-weight: 500; transition: opacity 0.3s; padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.9rem; }
+        .nav-link:hover { opacity: 0.8; background: rgba(255,255,255,0.1); }
+ 
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(74,124,89,0.85), rgba(59,35,20,0.7)),
+                      url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        .hero-content h1 { font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); color: white; }
+        .hero-content .subtitle { font-size: clamp(1.2rem, 3vw, 1.8rem); margin-bottom: 2rem; opacity: 0.95; font-style: italic; }
+        .hero-content p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2.5rem; opacity: 0.95; }
+        .cta-btn {
+            display: inline-block;
+            background: var(--dorado-panela);
+            color: var(--cafe-oscuro);
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(212,160,23,0.4);
+        }
+        .cta-btn:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(212,160,23,0.6); }
+ 
+        /* Sections */
+        .section { padding: 100px 20px; }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
+        .section-alt { background: var(--crema); }
+        .section h2 { font-size: clamp(2.2rem, 5vw, 3.5rem); text-align: center; margin-bottom: 3rem; position: relative; }
+        .section h2::after { content: ''; display: block; width: 100px; height: 5px; background: linear-gradient(90deg, var(--verde-tierra), var(--dorado-panela)); margin: 1.5rem auto; border-radius: 3px; }
+ 
+        .section-content { max-width: 900px; margin: 0 auto; }
+        .section-content p { font-size: 1.1rem; margin-bottom: 1.5rem; text-align: justify; }
+ 
+        /* Grid */
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .card:hover { transform: translateY(-10px); }
+        .card i { font-size: 2.5rem; color: var(--dorado-panela); margin-bottom: 1rem; }
+        .card h3 { margin-bottom: 0.8rem; font-size: 1.3rem; }
+ 
+        /* Stats */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem; text-align: center; }
+        .stat-box { background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-top: 5px solid var(--dorado-panela); }
+        .stat-number { font-size: 3rem; font-weight: 700; color: var(--verde-tierra); font-family: 'Playfair Display', serif; }
+        .stat-label { color: #666; margin-top: 0.5rem; font-size: 1rem; }
+ 
+        /* Timeline */
+        .timeline { max-width: 900px; margin: 3rem auto; position: relative; }
+        .timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 4px; background: linear-gradient(var(--verde-tierra), var(--dorado-panela)); transform: translateX(-50%); }
+        .timeline-item { width: 45%; margin: 2.5rem 0; padding: 1.8rem; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; }
+        .timeline-item:nth-child(odd) { margin-left: auto; }
+        .timeline-item:nth-child(even) { margin-right: auto; }
+        .timeline-dot { position: absolute; width: 50px; height: 50px; background: var(--dorado-panela); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; top: 20px; }
+        .timeline-item:nth-child(odd) .timeline-dot { left: -65px; }
+        .timeline-item:nth-child(even) .timeline-dot { right: -65px; }
+        .timeline-item h4 { color: var(--verde-tierra); font-size: 1.2rem; margin-bottom: 0.5rem; }
+ 
+        /* Veredas */
+        .veredas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin-top: 2rem; }
+        .vereda-card { background: white; padding: 1.2rem 1.5rem; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); border-left: 5px solid var(--dorado-panela); transition: all 0.3s; display: flex; align-items: center; gap: 0.8rem; }
+        .vereda-card:hover { transform: translateX(8px); box-shadow: 0 12px 35px rgba(0,0,0,0.12); }
+        .vereda-card i { color: var(--verde-tierra); font-size: 1.2rem; }
+ 
+        /* Gastronomy */
+        .food-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .food-card { background: var(--cafe-oscuro); color: var(--crema); padding: 2.5rem 2rem; border-radius: 20px; text-align: center; transition: transform 0.3s; }
+        .food-card:hover { transform: translateY(-8px); }
+        .food-card .food-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .food-card h3 { color: var(--dorado-panela); margin-bottom: 1rem; font-size: 1.4rem; }
+        .food-card p { opacity: 0.9; font-size: 1rem; }
+ 
+        /* Festivities */
+        .fest-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .fest-card { background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-top: 5px solid var(--verde-tierra); transition: transform 0.3s; }
+        .fest-card:hover { transform: translateY(-8px); }
+        .fest-card .fest-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .fest-card h3 { color: var(--verde-tierra); margin-bottom: 0.8rem; font-size: 1.1rem; }
+ 
+        /* Tourism */
+        .tourism-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .tourism-card { background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s; text-align: center; }
+        .tourism-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
+        .tourism-card i { font-size: 3rem; color: var(--verde-tierra); margin-bottom: 1.2rem; display: block; }
+        .tourism-card h3 { color: var(--cafe-oscuro); margin-bottom: 0.8rem; }
+        .quote-block { background: linear-gradient(135deg, var(--verde-tierra), var(--dorado-panela)); color: white; padding: 3rem; border-radius: 20px; text-align: center; margin-top: 4rem; font-size: 1.4rem; font-style: italic; font-family: 'Playfair Display', serif; }
+ 
+        /* Impact */
+        .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .impact-card { background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .impact-card .impact-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .impact-card h3 { color: var(--verde-tierra); margin-bottom: 1rem; }
+        .impact-card ul { list-style: none; padding: 0; }
+        .impact-card ul li { padding: 0.4rem 0; padding-left: 1.5rem; position: relative; color: #555; }
+        .impact-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--dorado-panela); font-weight: bold; }
+ 
+        /* Team */
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .team-member { text-align: center; padding: 2rem; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.3s; }
+        .team-member:hover { transform: translateY(-8px); }
+        .team-avatar { width: 80px; height: 80px; background: linear-gradient(135deg, var(--verde-tierra), var(--dorado-panela)); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white; }
+        .team-role { color: var(--dorado-panela); font-size: 0.9rem; margin-top: 0.4rem; font-weight: 600; }
+ 
+        /* Footer */
+        .footer { background: var(--cafe-oscuro); color: var(--crema); text-align: center; padding: 4rem 20px 2rem; }
+        .footer h3 { color: var(--dorado-panela); font-size: 2rem; margin-bottom: 1rem; }
+        .footer p { opacity: 0.8; margin-bottom: 2rem; }
+        .footer-divider { border: none; border-top: 1px solid rgba(245,240,232,0.2); margin: 2rem 0; }
+        .footer-bottom { opacity: 0.6; font-size: 0.9rem; }
+ 
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .timeline::before { left: 20px; }
+            .timeline-item { width: calc(100% - 60px); margin-left: 55px !important; margin-right: 0 !important; }
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot { left: -45px; right: auto; }
+        }
+    </style>
+</head>
+<body>
+ 
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <i class="fas fa-leaf"></i> San José de Pare
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#historia" class="nav-link">Historia</a></li>
+                <li><a href="#geografia" class="nav-link">Geografia</a></li>
+                <li><a href="#mapa interactivo" class="nav-link">Mapa</a></li>
+                <li><a href="#gastronomia" class="nav-link">Gastronomia</a></li>
+                <li><a href="#festividades" class="nav-link">festividades</a></li>
+                <li><a href="#naturaleza" class="nav-link">naturaleza</a></li>
+                <li><a href="#Pasaporte" class="nav-link">Pasaporte</a></li>
+              <!-- <li><a href="#project" class="nav-link">Project</a></li> -->
+               <a href="index español.html" target="_blank"> Ir a pagina en Ingles</a>
+            </ul>
+        </nav>
+    </header>
+ 
+    <!-- Hero -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Descubre San José de Pare </h1>
+            <p class="subtitle">La capital mundial del poncho y un tesoro escondido en las montañas de Boyacá, Colombia</p>
+            <p>Bienvenido a San José de Pare un lugar lleno de historia, sabores, cultura,  paisajes y tradiciones. Aquí entre montañas, ríos y naturaleza, vas a encontrar el dulce aroma de la panela y sentirte como en tu casa. ¿estás listo para descubrirlo? </p>
+            <a href="#tourism" class="cta-btn"><i class="fas fa-map-marker-alt"></i>Explora el municipio </a><br><br>
+            <a href="https://heyzine.com/flip-book/6b1ef984f7.html">Pasaporte virtual</a>
+        </div>
+    </section>
+ 
+    <!-- Contenedor principal con scroll horizontal -->
+<div style="width: 100%; overflow-x: auto; white-space: nowrap;">
+    
+    <!-- Imágenes dentro del contenedor -->
+    <img src="Imagenes/20.jpg" alt="Imagen 1" width="300" height="200">
+    <img src="Imagenes/21.jpg" alt="Imagen 2" width="300" height="200">
+    <img src="Imagenes/22.jpg" alt="Imagen 3" width="300" height="200">
+    <img src="Imagenes/23.jpg" alt="Imagen 4" width="300" height="200">
+    <img src="Imagenes/24.jpg" alt="Imagen 5" width="300" height="200">
+    <img src="Imagenes/25.jpg" alt="Imagen 6" width="300" height="200">
+    <img src="Imagenes/26.jpg" alt="Imagen 7" width="300" height="200">
+    <img src="Imagenes/27.jpg" alt="Imagen 8" width="300" height="200">
+    <img src="Imagenes/28.jpg" alt="Imagen 9" width="300" height="200">
+    <img src="Imagenes/29.jpg" alt="Imagen 10" width="300" height="200">
+    <img src="Imagenes/30.jpg" alt="Imagen 11" width="300" height="200">
+    <img src="Imagenes/31.jpg" alt="Imagen 12" width="300" height="200">
+</div>
+
+    <!-- History -->
+    <section id="historia" class="section">
+        <div class="section-inner">
+            <h2>Una Historia </h2>
+            <div class="section-content">
+                <p>Hoy en día, caminar por San José de Pare significa vivir sus tradiciones y viajar al pasado <strong>.Antes de la llegada de los españoles</strong>, A el pueblo guane que formaba parte del grupo lingüístico Chibcha vivía allí<strong>.Hoy</strong>,</p>
+                <p>la comunidad de San José de Pare ha construido una identidad única,<strong> participando en diferentes</strong> movimientos junto con los municipios de Socorro y San Gil<strong>.</strong></p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot">🏹</div>
+                        <h4>Antes de 1560</h4>
+                        <p>Territorio de Guane: un asentamiento precolombino del grupo Chibcha.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">⚔️</div>
+                        <h4>1560</h4>
+                        <p>La llegada de los españoles y el declive del pueblo Guane./p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">📜</div>
+                        <h4>1780</h4>
+                        <p>Fundación oficial por Pedro Antonio Flórez</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">🏘️</div>
+                        <h4>1785</h4>
+                        <p>Oficialmente llamado San José de Pare</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">🗺️</div>
+                        <h4>1857</h4>
+                        <p>Incorporado como distrito parroquial de Boyacá</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Geography -->
+    <section id="geografia" class="section section-alt">
+        <div class="section-inner">
+            <h2>Una tierra de ríos, lagunas y montañas</h2>
+            <div class="section-content">
+                <p>Ubicado en la Cordillera Oriental,<strong>San José de Pare es un municipio de paisajes espectaculares</strong>. Su territorio abarca 73,85 km2, distribuidos en zonas de clima templado y frío<strong>, con precipitaciones moderadas que mantienen este paraíso natural exuberante y vibrante durante todo el año</strong>. <br> El río Suárez y el río Ubaza fluyen a través de sus tierras, mientras que en lo alto, lagunas de ensueño como El Olimpo, Ojo de Agua, Grande y Laguna Blanca se sientan como espejos puros de la naturaleza.</p> <br>
+                <p>Limita con Barbosa y Güepsa (Santander) al norte, y Togüí, Moniquirá, Chitaraque y Santana (Boyacá) al sur y al este.</p>    
+            
+            
+            </div>
+ 
+            <!--cuadros para imagenes-->
+        <!--    <h3 style="text-align:center; margin-top: 3rem; margin-bottom: 1rem; font-size: 1.8rem;">Its 9 Villages (Veredas)</h3>
+            <div class="veredas-grid">
+                <div class="vereda-card"><i class="fas fa-mountain"></i> Muñoces y Camachos</div>
+                <div class="vereda-card"><i class="fas fa-mountain"></i> Maciegal</div>
+                <div class="vereda-card"><i class="fas fa-mountain"></i> Guanomo</div>
+                <div class="vereda-card"><i class="fas fa-mountain"></i> Guanomito</div>
+                <div class="vereda-card"><i class="fas fa-mountain"></i> San Isidro Alto</div>
+                <div class="vereda-card"><i class="fas fa-mountain"></i> San Jacinto y Chapa</div>
+                <div class="vereda-card"><i class="fas fa-mountain"></i> Balsa y Resguardo</div>
+                <div class="vereda-card"><i class="fas fa-mountain"></i> Santo Domingo</div>
+                <div class="vereda-card"><i class="fas fa-mountain"></i> San Roque</div>
+            </div> -->
+        </div>
+    </section>
+ 
+    <!-- mapa interactivo -->
+    <section id="mapa interactivo" class="section">
+        <div class="section-inner">
+            <h2>¿Listo para explorar cada rincón del municipio?</h2>
+            <div class="section-content">
+                <p>Este mapa interactivo te permitirá ubicar fácilmente los principales atractivos turísticos, planificar tu recorrido y descubrir nuevas experiencias en cada punto del territorio <strong>.</p>
+                <p>A través de esta herramienta podrás conectar con la cultura,la naturaleza y la gastronomía local, guiando tu viaje de forma práctica<strong>.</p>
+                <a href="https://www.google.com/maps/d/viewer?mid=1CAe5UVyN8ESq6BGCAKy5hvsOpT4OCl4&ll=5.366367140870884%2C-73.80664&z=8" target="_blank">
+                    <button style="font-weight: bold; padding: 10px 20px; font-size: 20px;">Sitios turisticos</button></a>
+            </div>
+        </div>
+    </section>
+ 
+            <!--<div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">+80</div>
+                    <div class="stat-label">Sugar mills across the municipality</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">8,000</div>
+                    <div class="stat-label">Loads of panela produced per month</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">9</div>
+                    <div class="stat-label">Rural villages full of life</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">73km²</div>
+                    <div class="stat-label">Of fertile, productive land</div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+ 
+    <!-- Gastronomy -->
+    <section id="gastronomia" class="section section-alt">
+        <div class="section-inner">
+            <h2>¿Te gustaría descubrir los sabores del campo pareño?</h2>
+            <div class="section-content">
+                <p>Te invitamos a vivir la gastronomía de San José de Paré, donde cada plato refleja la tradición, el trabajo campesino y el amor por la tierra. Una experiencia que va más allá del gusto, conectando con la cultura y la identidad del territorio.</p>
+            </div>
+ 
+            <div class="food-grid">
+                <div class="food-card">
+                    <img src="Imagenes/2.jpg"width="100" height="100">
+                    <!--<div class="food-icon">🍲</div>-->
+                    <h3>Piquete Campesino</h3>
+                    <p>El clásico de la tradición local y uno de los platos más representativos del campo boyacense. Combina papa, yuca, mazorca, chicharrón y diferentes carnes, todo servido en una generosa preparación pensada para compartir.</p>
+                </div>
+                <div class="food-card">
+                    <img src="Imagenes/3.jpg"width="100" height="100">
+                    <!--<div class="food-icon">🍗</div>-->
+                    <h3>Sancocho de Gallina</h3>
+                    <p> Una sopa reconfortante y sustanciosa que refleja la esencia de la cocina tradicional. Preparada con gallina criolla, papa, plátano y verduras frescas, cocinadas lentamente para resaltar cada sabor. </p>
+                </div>
+                <div class="food-card">
+                    <img src="Imagenes/4.jpg"width="100" height="100">
+                   <!---- <div class="food-icon">🔥</div> -->
+                    <h3>Picadas de Fritanga</h3>
+                    <p> Una deliciosa variedad de fritos tradicionales que destacan por su sabor intenso y textura crujiente. Incluyen carnes, chorizos, papas y otros acompañamientos típicos, convirtiéndose en la opción perfecta para compartir en grupo. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Festivities -->
+    <section id="festividades" class="section">
+        <div class="section-inner">
+            <h2>Ven a celebrar con nosotros </h2>
+            <div class="section-content">
+                <p>San Jose de Pare tiene muchos festivales y actividades en las que puedes participar. Sus festividades son una explosión de  color, música, tradición y comunidad. Cada evento es una oportunidad única.</p>
+             </div>
+ 
+            <div class="fest-grid">
+                <div class="fest-card">
+                    <center><img src="Imagenes/15.jpg"width="100" height="100"> </center>
+                    <h3>Festival Cultural de la Molienda Pareña </h3>
+                    <p> El Festival más representativo de la región en donde el proceso artesanal de la caña de azúcar se convierte en una celebración y en una forma de expresión. </p>
+                </div>
+                <div class="fest-card">
+                    <center><img src="Imagenes/16.jpg"width="100" height="100"> </center>
+                    <h3>Feria del whisky y Poncho</h3>
+                    <p>Una celebración que invita a disfrutar, y a identificar la cultura de los sabores y tradiciones de Boyacá</p>
+                </div>
+                <div class="fest-card">
+                    <center><img src="Imagenes/17.jpg"width="100" height="100"> </center>
+                    <h3>Fiesta virgen del carmen</h3>
+                    <p>Se rinde homenaje a la Virgen del Carmen, patrona de los conductores y transportadores, con actividades litúrgicas.</p>
+                </div>
+                <div class="fest-card">
+                    <center><img src="Imagenes/18.jpg"width="100" height="100"> </center>
+                    <h3>Feria de Negocios Infantiles de Pareño</h3>
+                    <p>El futuro del municipio está en manos de sus emprendedores más jóvenes y entusiastas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Tourism -->
+    <section id="naturaleza" class="section section-alt">
+        <div class="section-inner">
+            <h2>Explora, descubre, asómbrate.</h2>
+            <div class="section-content">
+                <p>San José de Paré ofrece paisajes únicos donde el agua, las montañas y la vegetación crean escenarios perfectos para el descanso y la exploración. Estos espacios naturales invitan a caminar, respirar aire puro y vivir experiencias que conectan con la tranquilidad del territorio.</p>
+            </div>
+ 
+            <div class="tourism-grid">
+                <div class="tourism-card">
+                    <img src="Imagenes/5.jpg"width="200" height="150">
+                    <!--<i class="fas fa-dungeon"></i>-->
+                    <h3>Cuevas de Nitrio y Suárez</h3>
+                    <p>Adéntrate en misteriosas cavernas subterráneas que conectan con Moniquirá y Vélez. Una aventura subterránea única.</p>
+                </div>
+                <div class="tourism-card">
+                    <img src="Imagenes/6.jpg"width="200" height="150">
+                     <!--<i class="fas fa-water"></i>-->
+                    <h3>Lagunas de las tierras altas</h3>
+                    <p>Visita El Olimpo, Ojo de Agua, Grande y Laguna Blanca. Paisajes cinematográficos, silencio puro y naturaleza virgen.</p>
+                </div>
+                <div class="tourism-card">
+                    <img src="Imagenes/7.jpg"width="200" height="150">
+                     <!--<i class="fas fa-industry"></i>-->
+                    <h3>Visitas a la fábrica de azúcar</h3>
+                    <p>Descubre de primera mano el proceso de elaboración de la panela. Prueba el jarabe fresco directamente del molino: una dulce experiencia que no olvidarás.</p>
+                </div>
+                <div class="tourism-card">
+                    <img src="Imagenes/8.jpg"width="200" height="150">
+                   <!--  <i class="fas fa-hiking"></i>-->
+                    <h3>Ecoturismo y senderismo</h3>
+                    <p>Recorre los páramos, observa la fauna local y respira el aire puro de la montaña. La naturaleza en su estado más auténtico.</p>
+                </div>
+            </div>
+ 
+            <div class="quote-block">
+                "El viajero que llega a San José de Paré no solo ve un paisaje, sino que lo siente."
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Passport -->
+
+    <section id="Pasaporte" class="section">
+        <div class="section-inner">
+            <h2>Pasaporte</h2>
+            <div class="section-content">
+                <p style="text-align:center; font-size: 1.3rem; font-style: italic; color: var(--verde-tierra); margin-bottom: 2rem;">Pasaporte Cultural y de la Memoria: un proyecto para dar visibilidad a San José de Paré ante el mundo.</p>
+                <p>Este proyecto nace de la convicción de que San José de Paré merece ser conocido por el mundo. Inspirados en los barrios culturales de Bogotá, pero adaptados con cariño a un contexto rural, buscamos crear un<strong>Pasaporte Cultural y de la Memoria</strong> que conecte a los visitantes con el alma viva del municipio.</p>
+            </div>
+ 
+            <div class="grid-2" style="margin-top: 3rem;">
+                <div class="card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Objetivos generales</h3>
+                    <p>El Pasaporte Turístico de San José de Paré es una iniciativa que invita a visitantes y habitantes a explorar los principales atractivos del municipio de manera interactiva.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-passport"></i>
+                    <h3>Pasaporte Cultural</h3>
+                    <p>A través de este pasaporte, podrás recorrer lugares emblemáticos, conocer la cultura local y vivir experiencias únicas mientras coleccionas sellos en cada destino. Puedes obtener este material de manera digital o físico (Recomendamos el uso digital por sostenibilidad)</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-language"></i>
+                    <h3>Comunicación intercultural</h3>
+                    <p>Implementación del inglés como herramienta de comunicación turística, con materiales bilingües que faciliten la interacción con los visitantes internacionales.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-users"></i>
+                    <h3> ¿Cómo funciona?</h3>
+                    <p>1. Obtén tu pasaporte</p>
+                    <p>2 .Visita nuestra página web en la sección principal o reclámalo en puntos turísticos o eventos del municipio.</p>
+                    <p>3. Recorre los destinos</p>
+                    <p>4. Visita lugares como el parque principal, senderos ecológicos y el Gran Manantial.</p>
+                    <p>5. Completa experiencias</p>
+                    <p>6. Recibe tu sello</p>
+                    <p>Por cada lugar visitado, obtendrás un sello en tu pasaporte.</p>
+                    <p>Conviértete en explorador oficial</p>
+                    <!-- <h3>Community at the Center</h3>
+                    <p>Identification and documentation of cultural actors, artisans, and community spaces that make San José de Pare unique.</p>-->
+                </div>
+            </div>
+ 
+            <h3 style="text-align:center; margin-top: 4rem; margin-bottom: 1rem; font-size: 1.8rem;">Impacto esperado</h3>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon"></div>
+                    <h3>Cultural</h3>
+                    <ul>
+                        <li>Preservación del patrimonio rural</li>
+                        <li>Fortalecimiento de la identidad local</li>
+                        <li>Promoción de las tradiciones locales</li>
+                    </ul>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon"></div>
+                    <h3>Economico</h3>
+                    <ul>
+                        <li>Crecimiento del turismo cultural</li>
+                        <li>Nuevas oportunidades para los agricultores</li>
+                        <li>Visibilidad de los productos locales</li>
+                    </ul>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon"></div>
+                    <h3>Social</h3>
+                    <ul>
+                        <li>Participación activa de la comunidad</li>
+                        <li>Tejido social más fuerte</li>
+                        <li>Colaboración dentro de la comunidad</li>
+                    </ul>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon"></div>
+                    <h3>Geografico</h3>
+                    <ul>
+                        <li>Reconocimiento del municipio</li>
+                        <li>Visibilidad de los paisajes rurales</li>
+                        <li>Conexión entre las personas y el territorio</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section> 
+            </div>
+ 
+
+                </a> <br><br>
+            <div style="text-align: center;">    
+                <iframe src="https://drive.google.com/file/d/1_GlZYKrcsOvXrmUvfFPBPCnXctajXnsW/preview" width="500" height="300"></iframe>
+            </div>
+            </div>
+        </div>
+    </section>
+
+   <section class="section">
+    <div class="section-inner">
+        <h2>Referencias APA</h2>
+        <div class="section-content">
+            <p>ProColombia. (s. f.).Turismo en Boyacá.https://colombia.travel</p>
+            <p>Gobernación de Boyacá. (2024).Diseño del producto turístico en la provincia de Ricaurte.https://www.boyaca.gov.co</p>
+            <p>Observatorio Cultural de Boyacá. (s. f.).San José de Pare: historia, cultura y patrimonio.https://observatoriocultural.boyaca.gov.co/san-jose-de-pare/</p>
+            <p>Departamento Administrativo Nacional de Estadística (DANE). (2018).Censo Nacional de Población y Vivienda: San José de Pare.https://www.dane.gov.co</p>
+            <p>Sistema de Información Turística de Boyacá (SITUR Boyacá). (s. f.).San José de Pare: atractivos turísticos.https://situr.boyaca.gov.co</p>
+            <p>Alcaldía Municipal de San José de Pare. (s. f.).Información general del municipio. https://www.sanjosedepare-boyaca.gov.co</p>
+            <p>Fondo Mixto de Cultura de Boyacá. (2025, 5 mayo). SAN JOSÉ DE PARE: 3er Mercado Campesino - fondocultura.org. fondocultura.org. https://fondocultura.org/evento/san-jose-de-pare-3er-mercado-campesino/</p>
+        </div>
+    </div>
+</section>
+ 
+    <!-- Footer -->
+    <footer class="footer">
+        <h3>San José de Pare</h3>
+        <p>Un tesoro escondido en el corazón de Boyacá, Colombia.<br> Ven a descubrirlo, te está esperando.</p>
+        <hr class="footer-divider">
+        <p class="footer-bottom">© 2026 San José de Pare — Proyecto de Red Creativa Rural · Boyacá, Colombia</p>
+    </footer>
+
+</body>
+</html>
+
